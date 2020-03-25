@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-wrap flex-start">
     <div
-      class="w-full grid lg:grid-cols-6 grid-cols-2 md:grid-cols-3 gap-4 my-8"
+      class="w-full grid lg:grid-cols-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 my-8"
     >
       <data-panel
         v-for="(item, index) in resume"
@@ -11,7 +11,7 @@
         :variation="item.variation"
       />
     </div>
-    <div class="w-full grid lg:grid-cols-2 gap-4 my-8">
+    <div class="w-full grid lg:grid-cols-2 grid-cols-1 gap-4 my-8">
       <div class="p-8 bg-gray-800 rounded shadow-lg">
         <report-chart
           class=""

@@ -1,17 +1,19 @@
 <template>
   <div class="bg-gray-700 text-gray-100">
     <nav class="bg-gray-900">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
-          <div class="flex items-center">
-            <div class="flex-shrink-0">
-              <nuxt-link to="/">
-                <h1 class="text-white text-2xl font-bold">
-                  Covid Report Italy
-                </h1>
-              </nuxt-link>
-            </div>
-            <div class="hidden md:block">
+      <div class="mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="flex flex-wrap items-center py-4 md:p-0 justify-between md:h-16"
+        >
+          <div
+            class="flex flex-wrap justify-left text-center md:text-left items-center w-full md:w-auto"
+          >
+            <nuxt-link to="/" class="mx-auto md:ml-0">
+              <h1 class="text-white text-2xl font-bold">
+                Covid Report Italy
+              </h1>
+            </nuxt-link>
+            <div class="md:block">
               <div class="ml-10 flex items-baseline">
                 <nuxt-link
                   to="/"
@@ -31,7 +33,9 @@
               </div>
             </div>
           </div>
-          <div class="hidden md:block">
+          <div
+            class="w-full md:w-auto md:block text-center md:text-right text-sm"
+          >
             ultimo aggiornamento: {{ $store.getters.lastUpdate }}
           </div>
           <div class="-mr-2 flex hidden"></div>
