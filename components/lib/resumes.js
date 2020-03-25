@@ -8,6 +8,12 @@ const dailyResumeByKey = (data, key, label, color = 'bg-grey-700') => {
   }
 }
 
+const lastUpdate = (data) => {
+  const last = data.length - 1
+  const newDate = new Date(data[last].data)
+  return newDate.toLocaleDateString()
+}
+
 const dailyResume = (data) => {
   return {
     totali: dailyResumeByKey(data, 'totale_casi', 'Totale'),
@@ -50,6 +56,7 @@ const dailyResumeByProvince = (code, data) => {
 }
 
 export {
+  lastUpdate,
   dailyResume,
   dailyResumeByKey,
   dailyResumeByRegion,

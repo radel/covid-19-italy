@@ -1,4 +1,4 @@
-import { dailyResume } from '../components/lib/resumes'
+import { dailyResume, lastUpdate } from '../components/lib/resumes'
 
 export const state = () => ({
   italyData: [],
@@ -8,7 +8,8 @@ export const state = () => ({
 export const getters = {
   data: (state) => state.italyData,
   title: (state) => state.title,
-  resume: (state) => dailyResume(state.italyData)
+  resume: (state) => dailyResume(state.italyData),
+  lastUpdate: (state) => lastUpdate(state.italyData)
 }
 
 export const actions = {

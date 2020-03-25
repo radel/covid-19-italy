@@ -31,73 +31,10 @@
               </div>
             </div>
           </div>
-          <div class="hidden md:block"></div>
-          <div class="-mr-2 flex md:hidden"></div>
-        </div>
-      </div>
-      <div :class="{ block: open, hidden: !open }" class="hidden md:hidden">
-        <div class="px-2 pt-2 pb-3 sm:px-3">
-          <a
-            href="#"
-            class="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700"
-            >Dashboard</a
-          >
-          <a
-            href="#"
-            class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
-            >Team</a
-          >
-          <a
-            href="#"
-            class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
-            >Projects</a
-          >
-          <a
-            href="#"
-            class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
-            >Calendar</a
-          >
-          <a
-            href="#"
-            class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
-            >Reports</a
-          >
-        </div>
-        <div class="pt-4 pb-3 border-t border-gray-700">
-          <div class="flex items-center px-5">
-            <div class="flex-shrink-0">
-              <img
-                class="h-10 w-10 rounded-full"
-                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                alt=""
-              />
-            </div>
-            <div class="ml-3">
-              <div class="text-base font-medium leading-none text-white">
-                Tom Cook
-              </div>
-              <div class="mt-1 text-sm font-medium leading-none text-gray-400">
-                tom@example.com
-              </div>
-            </div>
+          <div class="hidden md:block">
+            ultimo aggiornamento: {{ $store.getters.lastUpdate }}
           </div>
-          <div class="mt-3 px-2">
-            <a
-              href="#"
-              class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
-              >Your Profile</a
-            >
-            <a
-              href="#"
-              class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
-              >Settings</a
-            >
-            <a
-              href="#"
-              class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
-              >Sign out</a
-            >
-          </div>
+          <div class="-mr-2 flex hidden"></div>
         </div>
       </div>
     </nav>
@@ -113,6 +50,20 @@
         <nuxt />
       </div>
     </main>
+    <footer class="bg-gray-900 text-white p-8">
+      <ul>
+        <li>
+          fonte dati:
+          <a class="text-gray-500" href="https://github.com/pcm-dpc/COVID-19"
+            >pcm-dpc/COVID-19</a
+          >
+        </li>
+        <li>
+          made by:
+          <a target="_blank" href="https://www.twitter.com/radel">marco</a>
+        </li>
+      </ul>
+    </footer>
   </div>
 </template>
 <script>
@@ -138,3 +89,8 @@ export default {
   }
 }
 </script>
+<style lang="css">
+body {
+  font-family: 'Spartan', sans-serif;
+}
+</style>

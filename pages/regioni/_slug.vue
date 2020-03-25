@@ -24,7 +24,7 @@
           class=""
           :height="200"
           :chart-data="tamponiInfetti"
-          :extra-options="{}"
+          :extra-options="notStackedOptions"
         >
         </report-chart>
       </div>
@@ -33,6 +33,7 @@
 </template>
 
 <script>
+import notStacked from '../../components/charts/not-stacked'
 import ReportChart from '@/components/charts/mixed.js'
 import DataPanel from '@/components/DataPanel'
 export default {
@@ -48,7 +49,8 @@ export default {
     }
     return {
       regionData: store.getters['regions/data'][params.slug - 1],
-      slug: params.slug
+      slug: params.slug,
+      notStackedOptions: notStacked
     }
   },
 
