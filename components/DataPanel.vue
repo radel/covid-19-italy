@@ -7,7 +7,7 @@
     </div>
     <div class="w-full text-center text-5xl font-bold">{{ number }}</div>
     <div class="bg-gray-900 text-center text-gray-600 text-normal">
-      <span v-if="variation > 0">+</span> <span v-else>-</span> {{ variation }}
+      <span v-if="variation > 0">+</span> {{ variation }}
     </div>
   </div>
 </template>
