@@ -1,17 +1,28 @@
 const dailyResumeByKey = (data, key, label, color = 'bg-grey-700') => {
   const last = data.length - 1
+  if (data[last]) {
+    return {
+      today: data[last][key],
+      variation: data[last][key] - data[last - 1][key],
+      color,
+      label
+    }
+  }
   return {
-    today: data[last][key],
-    variation: data[last][key] - data[last - 1][key],
+    today: 0,
+    variation: 0,
     color,
     label
   }
 }
 
 const lastUpdate = (data) => {
-  const last = data.length - 1
-  const newDate = new Date(data[last].data)
-  return newDate.toLocaleDateString()
+  if (data.length) {
+    const last = data.length - 1
+    const newDate = new Date(data[last].data)
+    return newDate.toLocaleDateString()
+  }
+  return new Date()
 }
 
 const dailyResume = (data) => {
