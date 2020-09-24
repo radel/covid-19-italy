@@ -12,11 +12,20 @@
       />
     </div>
     <div class="w-full grid lg:grid-cols-2 grid-cols-1 gap-4 my-8">
-      <div class="p-8 bg-gray-800 rounded shadow-lg">
+      <div class="p-8 bg-gray-800 rounded shadow-lg col-span-2">
         <report-chart
-          class=""
-          :height="200"
+          class="w-full"
+          :height="170"
           :chart-data="dataCollection"
+          :extra-options="{}"
+        >
+        </report-chart>
+      </div>
+      <div class="p-8 bg-gray-800 rounded shadow-lg col-span-2">
+        <report-chart
+          class="w-full"
+          :height="170"
+          :chart-data="incremento"
           :extra-options="{}"
         >
         </report-chart>
@@ -25,7 +34,25 @@
         <report-chart
           class=""
           :height="200"
-          :chart-data="tamponiInfetti"
+          :chart-data="tamponi"
+          :extra-options="notStackedOptions"
+        >
+        </report-chart>
+      </div>
+      <div class="p-8 bg-gray-800 rounded shadow-lg">
+        <report-chart
+          class=""
+          :height="200"
+          :chart-data="casiTotali"
+          :extra-options="notStackedOptions"
+        >
+        </report-chart>
+      </div>
+      <div class="p-8 bg-gray-800 rounded shadow-lg">
+        <report-chart
+          class=""
+          :height="200"
+          :chart-data="variazione"
           :extra-options="notStackedOptions"
         >
         </report-chart>
@@ -69,43 +96,94 @@ export default {
           {
             label: 'Decessi',
             data: this.italyData.map((x) => x.deceduti),
-            backgroundColor: 'black',
+            backgroundColor: '#44337a',
             type: 'bar'
           },
           {
             label: 'terapia intensiva',
             data: this.italyData.map((x) => x.terapia_intensiva),
             type: 'bar',
-            backgroundColor: 'red'
+            backgroundColor: '#e53e3e'
           },
           {
             label: 'Ricoverati con sintomi',
             data: this.italyData.map((x) => x.ricoverati_con_sintomi),
             type: 'bar',
-            backgroundColor: 'orange'
-          },
-          {
-            label: 'Dimessi',
-            data: this.italyData.map((x) => x.dimessi_guariti),
-            type: 'bar',
-            backgroundColor: 'green'
+            backgroundColor: '#ed8936'
           },
           {
             label: 'isolamento domiciliare',
             data: this.italyData.map((x) => x.isolamento_domiciliare),
             type: 'bar',
-            backgroundColor: 'gray'
+            backgroundColor: '#bee3f8'
+          },
+          {
+            label: 'Dimessi',
+            data: this.italyData.map((x) => x.dimessi_guariti),
+            type: 'bar',
+            backgroundColor: '#38a169'
           },
           {
             label: 'Totale',
             data: this.italyData.map((x) => x.totale_casi),
             type: 'line',
-            color: 'gray'
+            color: '#e6fffa'
           }
         ]
       }
     },
-    tamponiInfetti() {
+    tamponi() {
+      return {
+        labels: this.italyData.map((x) => {
+          const newDate = new Date(x.data)
+          return newDate.toLocaleDateString()
+        }),
+        datasets: [
+          {
+            label: 'Tamponi',
+            data: this.italyData.map((x) => x.tamponi),
+            type: 'line',
+            borderColor: 'teal',
+            backgroundColor: 'transparent'
+          }
+        ]
+      }
+    },
+    incremento() {
+      return {
+        labels: this.italyData.map((x) => {
+          const newDate = new Date(x.data)
+          return newDate.toLocaleDateString()
+        }),
+        datasets: [
+          {
+            label: 'Incremento positivi',
+            data: this.italyData.map((x) => x.nuovi_positivi),
+            type: 'line',
+            borderColor: '#ed8936',
+            backgroundColor: 'transparent'
+          }
+        ]
+      }
+    },
+    variazione() {
+      return {
+        labels: this.italyData.map((x) => {
+          const newDate = new Date(x.data)
+          return newDate.toLocaleDateString()
+        }),
+        datasets: [
+          {
+            label: 'Variazione Totali Positivi',
+            data: this.italyData.map((x) => x.variazione_totale_positivi),
+            type: 'line',
+            borderColor: '#bee3f8',
+            backgroundColor: 'transparent'
+          }
+        ]
+      }
+    },
+    casiTotali() {
       return {
         labels: this.italyData.map((x) => {
           const newDate = new Date(x.data)
@@ -117,13 +195,6 @@ export default {
             data: this.italyData.map((x) => x.totale_casi),
             type: 'line',
             borderColor: 'rgba(0,0,0,0.6)',
-            backgroundColor: 'transparent'
-          },
-          {
-            label: 'Tamponi',
-            data: this.italyData.map((x) => x.tamponi),
-            type: 'line',
-            borderColor: 'teal',
             backgroundColor: 'transparent'
           }
         ]

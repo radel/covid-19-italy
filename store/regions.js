@@ -4,7 +4,7 @@ const regions = [
   { code: 1, name: 'Piemonte' },
   { code: 2, name: "Valle D'Aosta" },
   { code: 3, name: 'Lombardia' },
-  { code: 4, name: 'Trentino Alto Adige' },
+  { code: 4, name: '' },
   { code: 5, name: 'Veneto' },
   { code: 6, name: 'Friuli Venezia Giulia' },
   { code: 7, name: 'Liguria' },
@@ -20,7 +20,9 @@ const regions = [
   { code: 17, name: 'Basilicata' },
   { code: 18, name: 'Calabria' },
   { code: 19, name: 'Sicilia' },
-  { code: 20, name: 'Sardegna' }
+  { code: 20, name: 'Sardegna' },
+  { code: 21, name: 'Bolzano' },
+  { code: 22, name: 'Trento' }
 ]
 
 export const state = () => ({
