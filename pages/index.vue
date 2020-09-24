@@ -12,7 +12,7 @@
       />
     </div>
     <div class="w-full grid lg:grid-cols-2 grid-cols-1 gap-4 my-8">
-      <div class="p-8 bg-gray-800 rounded shadow-lg col-span-2">
+      <div class="p-8 bg-gray-800 rounded shadow-lg lg:col-span-2">
         <report-chart
           class="w-full"
           :height="170"
@@ -21,7 +21,7 @@
         >
         </report-chart>
       </div>
-      <div class="p-8 bg-gray-800 rounded shadow-lg col-span-2">
+      <div class="p-8 bg-gray-800 rounded shadow-lg lg:col-span-2">
         <report-chart
           class="w-full"
           :height="170"

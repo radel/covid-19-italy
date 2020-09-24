@@ -45,7 +45,7 @@ export const mutations = {
       (item) =>
         (state.province[item.codice_provincia] = {
           code: item.codice_provincia,
-          name: item.denominazione_provincia
+          name: item ? item.denominazione_provincia : ''
         })
     )
   },
