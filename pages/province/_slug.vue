@@ -41,11 +41,7 @@ export default {
     DataPanel
   },
   async asyncData({ store, params, payload }) {
-    if (payload) {
-      await store.dispatch('province/setProvinceData', payload)
-    } else {
-      await store.dispatch('province/getProvinceData')
-    }
+    await store.dispatch('province/getProvinceData')
     return {
       regionData: store.getters['province/data'](params.slug),
       slug: params.slug
