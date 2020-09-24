@@ -40,15 +40,19 @@ export default {
     ReportChart,
     DataPanel
   },
-  async asyncData({ store, params, payload }) {
-    await store.dispatch('province/getProvinceData')
+  async fetch() {
+    await this.$store.dispatch('province/getProvinceData')
+  },
+  asyncData({ store, params, payload }) {
     return {
-      regionData: store.getters['province/data'](params.slug),
       slug: params.slug
     }
   },
 
   computed: {
+    regionData() {
+      return this.$store.getters['province/data'](this.slug)
+    },
     resume() {
       return this.$store.getters['province/resume'](this.slug)
     },

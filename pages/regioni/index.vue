@@ -26,19 +26,20 @@
 
 <script>
 export default {
-  async asyncData({ store, params, payload }) {
-    if (payload) {
-      await store.dispatch('regions/setRegionsData', payload)
-    } else {
-      await store.dispatch('regions/getRegionsData')
-    }
+  async fetch() {
+    await this.$store.dispatch('regions/getRegionsData')
+  },
+
+  asyncData({ store, params, payload }) {
     return {
-      regionData: store.getters['regions/data'][params.slug - 1],
       slug: params.slug
     }
   },
   data() {},
   computed: {
+    regionData() {
+      return this.$store.getters['regions/data'][this.slug - 1]
+    },
     regions() {
       return this.$store.getters['regions/regions']
     }

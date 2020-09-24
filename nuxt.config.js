@@ -1,5 +1,6 @@
 export default {
   ssr: 'false',
+  target: 'static',
   /*
    ** Headers of the page
    */
@@ -61,7 +62,9 @@ export default {
   /*
    ** Build configuration
    */
-  generate: {},
+  generate: {
+    exclude: [/^\/province/]
+  },
 
   build: {
     /*

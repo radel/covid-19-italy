@@ -70,16 +70,21 @@ export default {
     ReportChart,
     DataPanel
   },
-  async asyncData({ store, params, payload }) {
-    await store.dispatch('regions/getRegionsData')
+  async fetch() {
+    await this.$store.dispatch('regions/getRegionsData')
+  },
+
+  asyncData({ store, params, payload }) {
     return {
-      regionData: store.getters['regions/data'][params.slug - 1],
       slug: params.slug,
       notStackedOptions: notStacked
     }
   },
 
   computed: {
+    regionData() {
+      return this.$store.getters['regions/data'][this.slug - 1]
+    },
     resume() {
       return this.$store.getters['regions/resume'][this.slug - 1]
     },

@@ -26,18 +26,19 @@
 
 <script>
 export default {
-  async asyncData({ store, params, payload }) {
-    if (payload) {
-      await store.dispatch('province/setProvinceData', payload)
-    } else {
-      await store.dispatch('province/getProvinceData')
-    }
+  async fetch() {
+    await this.$store.dispatch('province/getProvinceData')
+  },
+  asyncData({ store, params, payload }) {
     return {
       slug: params.slug
     }
   },
   data() {},
   computed: {
+    regionData() {
+      return this.$store.getters['province/data'](this.slug)
+    },
     provinces() {
       return this.$store.getters['province/province'].filter((p) => p.code)
     }
