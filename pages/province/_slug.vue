@@ -40,9 +40,6 @@ export default {
     ReportChart,
     DataPanel
   },
-  async fetch() {
-    await this.$store.dispatch('province/getProvinceData')
-  },
   asyncData({ store, params, payload }) {
     return {
       slug: params.slug
@@ -129,6 +126,9 @@ export default {
         ]
       }
     }
+  },
+  async mounted() {
+    await this.$store.dispatch('province/getProvinceData')
   },
 
   created() {

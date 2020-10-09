@@ -26,9 +26,6 @@
 
 <script>
 export default {
-  async fetch() {
-    await this.$store.dispatch('province/getProvinceData')
-  },
   asyncData({ store, params, payload }) {
     return {
       slug: params.slug
@@ -42,6 +39,9 @@ export default {
     provinces() {
       return this.$store.getters['province/province'].filter((p) => p.code)
     }
+  },
+  async mounted() {
+    await this.$store.dispatch('province/getProvinceData')
   },
   created() {
     this.$store.dispatch('setTitle', 'Province')
